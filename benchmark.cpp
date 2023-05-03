@@ -1,4 +1,4 @@
-//
+///
 // (C) 2021, E. Wes Bethel
 // benchmark-* harness for running different versions of vector-matrix multiply
 //    over different problem sizes
@@ -93,12 +93,14 @@ int main(int argc, char** argv)
         memcpy((void *)Ycopy, (const void *)Y, sizeof(double)*n);
 
         // insert start timer code here
-
+        std::chrono::time_point<std::chrono::high_resolution_clock> start_time = std::chrono::high_resolution_clock::now();
         // call the method to do the work
         my_dgemv(n, A, X, Y); 
 
         // insert end timer code here, and print out the elapsed time for this problem size
-
+        std::chrono::time_point<std::chrono::high_resolution_clock> end_time = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> t = end_time - start_time;
+        printf(" Sum result = %lld \n",t.count());
 
         // now invoke the cblas method to compute the matrix-vector multiplye
         reference_dgemv(n, Acopy, Xcopy, Ycopy);
