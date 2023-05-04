@@ -102,7 +102,6 @@ int main(int argc, char** argv)
         std::chrono::time_point<std::chrono::high_resolution_clock> end_time = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> t = end_time - start_time;
         std::cout << " Elapsed time is : " << t.count() << " " << std::endl;
-        printf(" Sum result = %lld \n", t);
         // now invoke the cblas method to compute the matrix-vector multiplye
         reference_dgemv(n, Acopy, Xcopy, Ycopy);
 
