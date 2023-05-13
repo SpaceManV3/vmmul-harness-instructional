@@ -1,0 +1,1 @@
+/usr/bin/c++ -O0 -fopenmp CMakeFiles/benchmark-openmp-nested.dir/dgemv-openmp-nested.cpp.o CMakeFiles/benchmark.dir/benchmark.cpp.o -o benchmark-openmp-nested  /usr/lib/x86_64-linux-gnu/libblas.so 
